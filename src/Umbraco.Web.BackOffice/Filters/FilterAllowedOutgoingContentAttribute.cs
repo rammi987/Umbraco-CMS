@@ -2,7 +2,7 @@ using System.Collections;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core;
-using Umbraco.Cms.Core.Actions;
+using Umbraco.Cms.Core.Actions.ContentActions;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.Membership;

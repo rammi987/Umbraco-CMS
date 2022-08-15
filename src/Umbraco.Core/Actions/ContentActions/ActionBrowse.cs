@@ -1,7 +1,7 @@
 // Copyright (c) Umbraco.
 // See LICENSE for more details.
 
-namespace Umbraco.Cms.Core.Actions;
+namespace Umbraco.Cms.Core.Actions.ContentActions;
 
 /// <summary>
 ///     This action is used as a security constraint that grants a user the ability to view nodes in a tree

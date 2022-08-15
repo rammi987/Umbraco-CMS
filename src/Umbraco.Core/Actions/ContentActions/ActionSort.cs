@@ -1,29 +1,29 @@
 // Copyright (c) Umbraco.
 // See LICENSE for more details.
 
-namespace Umbraco.Cms.Core.Actions;
+namespace Umbraco.Cms.Core.Actions.ContentActions;
 
 /// <summary>
-///     This action is invoked when a document is being published
+///     This action is invoked when children to a document, member is being sorted
 /// </summary>
-public class ActionPublish : IAction
+public class ActionSort : IAction
 {
     /// <summary>
     ///     The unique action letter
     /// </summary>
-    public const char ActionLetter = 'U';
+    public const char ActionLetter = 'S';
 
     /// <inheritdoc />
     public char Letter => ActionLetter;
 
     /// <inheritdoc />
-    public string Alias => "publish";
+    public string Alias => "sort";
 
     /// <inheritdoc />
-    public string Category => Constants.Conventions.PermissionCategories.ContentCategory;
+    public string Category => Constants.Conventions.PermissionCategories.StructureCategory;
 
     /// <inheritdoc />
-    public string Icon => string.Empty;
+    public string Icon => "icon-navigation-vertical";
 
     /// <inheritdoc />
     public bool ShowInNotifier => true;

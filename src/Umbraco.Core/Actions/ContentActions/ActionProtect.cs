@@ -1,29 +1,29 @@
-﻿// Copyright (c) Umbraco.
+// Copyright (c) Umbraco.
 // See LICENSE for more details.
 
-namespace Umbraco.Cms.Core.Actions;
+namespace Umbraco.Cms.Core.Actions.ContentActions;
 
 /// <summary>
-///     This action is invoked when children to a document, media, member is being sorted
+///     This action is invoked when a document is protected or unprotected
 /// </summary>
-public class ActionSort : IAction
+public class ActionProtect : IAction
 {
     /// <summary>
     ///     The unique action letter
     /// </summary>
-    public const char ActionLetter = 'S';
+    public const char ActionLetter = 'P';
 
     /// <inheritdoc />
     public char Letter => ActionLetter;
 
     /// <inheritdoc />
-    public string Alias => "sort";
+    public string Alias => "protect";
 
     /// <inheritdoc />
-    public string Category => Constants.Conventions.PermissionCategories.StructureCategory;
+    public string Category => Constants.Conventions.PermissionCategories.AdministrationCategory;
 
     /// <inheritdoc />
-    public string Icon => "icon-navigation-vertical";
+    public string Icon => "icon-lock";
 
     /// <inheritdoc />
     public bool ShowInNotifier => true;

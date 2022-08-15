@@ -1,29 +1,29 @@
 ﻿// Copyright (c) Umbraco.
 // See LICENSE for more details.
 
-namespace Umbraco.Cms.Core.Actions;
+namespace Umbraco.Cms.Core.Actions.ContentActions;
 
 /// <summary>
-///     This action is invoked when a document is protected or unprotected
+///     This action is invoked when copying a document, media, member
 /// </summary>
-public class ActionProtect : IAction
+public class ActionCopy : IAction
 {
     /// <summary>
     ///     The unique action letter
     /// </summary>
-    public const char ActionLetter = 'P';
+    public const char ActionLetter = 'O';
 
     /// <inheritdoc />
     public char Letter => ActionLetter;
 
     /// <inheritdoc />
-    public string Alias => "protect";
+    public string Alias => "copy";
 
     /// <inheritdoc />
-    public string Category => Constants.Conventions.PermissionCategories.AdministrationCategory;
+    public string Category => Constants.Conventions.PermissionCategories.StructureCategory;
 
     /// <inheritdoc />
-    public string Icon => "icon-lock";
+    public string Icon => "icon-documents";
 
     /// <inheritdoc />
     public bool ShowInNotifier => true;

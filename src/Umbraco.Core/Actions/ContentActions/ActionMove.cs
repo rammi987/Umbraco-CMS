@@ -1,29 +1,29 @@
-﻿// Copyright (c) Umbraco.
+// Copyright (c) Umbraco.
 // See LICENSE for more details.
 
-namespace Umbraco.Cms.Core.Actions;
+namespace Umbraco.Cms.Core.Actions.ContentActions;
 
 /// <summary>
-///     This action is invoked when copying a document is being rolled back
+///     This action is invoked upon creation of a document, member
 /// </summary>
-public class ActionRollback : IAction
+public class ActionMove : IAction
 {
     /// <summary>
     ///     The unique action letter
     /// </summary>
-    public const char ActionLetter = 'K';
+    public const char ActionLetter = 'M';
 
     /// <inheritdoc />
     public char Letter => ActionLetter;
 
     /// <inheritdoc />
-    public string Alias => "rollback";
+    public string Alias => "move";
 
     /// <inheritdoc />
-    public string Category => Constants.Conventions.PermissionCategories.AdministrationCategory;
+    public string Category => Constants.Conventions.PermissionCategories.StructureCategory;
 
     /// <inheritdoc />
-    public string Icon => "icon-undo";
+    public string Icon => "icon-enter";
 
     /// <inheritdoc />
     public bool ShowInNotifier => true;

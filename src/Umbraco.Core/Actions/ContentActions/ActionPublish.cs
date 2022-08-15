@@ -1,29 +1,29 @@
-﻿// Copyright (c) Umbraco.
+// Copyright (c) Umbraco.
 // See LICENSE for more details.
 
-namespace Umbraco.Cms.Core.Actions;
+namespace Umbraco.Cms.Core.Actions.ContentActions;
 
 /// <summary>
-///     This action is invoked when children to a document is being sent to published (by an editor without publishrights)
+///     This action is invoked when a document is being published
 /// </summary>
-public class ActionToPublish : IAction
+public class ActionPublish : IAction
 {
     /// <summary>
     ///     The unique action letter
     /// </summary>
-    public const char ActionLetter = 'H';
+    public const char ActionLetter = 'U';
 
     /// <inheritdoc />
     public char Letter => ActionLetter;
 
     /// <inheritdoc />
-    public string Alias => "sendtopublish";
+    public string Alias => "publish";
 
     /// <inheritdoc />
     public string Category => Constants.Conventions.PermissionCategories.ContentCategory;
 
     /// <inheritdoc />
-    public string Icon => "icon-outbox";
+    public string Icon => string.Empty;
 
     /// <inheritdoc />
     public bool ShowInNotifier => true;

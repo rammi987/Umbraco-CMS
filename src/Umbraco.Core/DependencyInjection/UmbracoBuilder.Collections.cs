@@ -1,4 +1,4 @@
-using Umbraco.Cms.Core.Actions;
+using Umbraco.Cms.Core.Actions.ContentActions;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.ContentApps;

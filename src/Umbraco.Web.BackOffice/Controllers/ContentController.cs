@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Actions;
+using Umbraco.Cms.Core.Actions.ContentActions;
 using Umbraco.Cms.Core.ContentApps;
 using Umbraco.Cms.Core.Dictionary;
 using Umbraco.Cms.Core.Events;

@@ -1,12 +1,13 @@
 // Copyright (c) Umbraco.
 // See LICENSE for more details.
 
-namespace Umbraco.Cms.Core.Actions.ContentActions;
+
+namespace Umbraco.Cms.Core.Actions.MediaActions;
 
 /// <summary>
-///     This action is invoked when the content item is to be restored from the recycle bin
+///     This action is invoked when the media item is to be restored from the recycle bin
 /// </summary>
-public class ActionRestore : IAction
+public class ActionMediaRestore : IAction
 {
     /// <summary>
     ///     The unique action alias
@@ -14,7 +15,7 @@ public class ActionRestore : IAction
     public const string ActionAlias = "restore";
 
     /// <inheritdoc />
-    public char Letter => 'V';
+    public char Letter => 'T';
 
     /// <inheritdoc />
     public string Alias => ActionAlias;

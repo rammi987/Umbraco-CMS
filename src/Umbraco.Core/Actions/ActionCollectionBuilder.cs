@@ -3,7 +3,7 @@
 
 using Umbraco.Cms.Core.Composing;
 
-namespace Umbraco.Cms.Core.Actions.ContentActions;
+namespace Umbraco.Cms.Core.Actions;
 
 /// <summary>
 ///     The action collection builder

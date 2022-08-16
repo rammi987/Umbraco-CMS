@@ -24,7 +24,6 @@ namespace Umbraco.Cms.Web.BackOffice.Mapping;
 internal class ContentMapDefinition : IMapDefinition
 {
     private readonly AppCaches _appCaches;
-    private readonly IBackOfficeSecurityAccessor _backOfficeSecurityAccessor;
     private readonly ContentBasicSavedStateMapper<ContentPropertyBasic> _basicStateMapper;
     private readonly CommonMapper _commonMapper;
     private readonly CommonTreeNodeMapper _commonTreeNodeMapper;
@@ -65,7 +64,6 @@ internal class ContentMapDefinition : IMapDefinition
         UriUtility uriUtility,
         IPublishedUrlProvider publishedUrlProvider,
         IEntityService entityService,
-        IBackOfficeSecurityAccessor backOfficeSecurityAccessor,
         AppCaches appCaches)
     {
         _commonMapper = commonMapper;
@@ -81,7 +79,6 @@ internal class ContentMapDefinition : IMapDefinition
         _loggerFactory = loggerFactory;
         _userService = userService;
         _entityService = entityService;
-        _backOfficeSecurityAccessor = backOfficeSecurityAccessor;
         _variationContextAccessor = variationContextAccessor;
         _uriUtility = uriUtility;
         _publishedUrlProvider = publishedUrlProvider;
@@ -250,7 +247,7 @@ internal class ContentMapDefinition : IMapDefinition
             parent = _contentService.GetParent(source);
         }
 
-        target.AllowedActions = GetActions(source, parent, context);
+        target.AllowedActions = _commonMapper.GetActions(source, parent, context);
         target.AllowedTemplates = GetAllowedTemplates(source);
         target.ContentApps = _commonMapper.GetContentAppsForEntity(source);
         target.ContentTypeId = source.ContentType.Id;
@@ -328,48 +325,6 @@ internal class ContentMapDefinition : IMapDefinition
         target.UpdateDate = GetUpdateDate(source, context);
         target.Updater = _commonMapper.GetCreator(source, context);
         target.VariesByCulture = source.ContentType.VariesByCulture();
-    }
-
-    private IEnumerable<string> GetActions(IContent source, IContent? parent, MapperContext context)
-    {
-        IBackOfficeSecurity? backOfficeSecurity = _backOfficeSecurityAccessor.BackOfficeSecurity;
-
-        //cannot check permissions without a context
-        if (backOfficeSecurity is null)
-        {
-            return Enumerable.Empty<string>();
-        }
-
-        string path;
-        if (source.HasIdentity)
-        {
-            path = source.Path;
-        }
-        else
-        {
-            path = parent == null ? "-1" : parent.Path;
-        }
-
-        // A bit of a mess, but we need to ensure that all the required values are here AND that they're the right type.
-        if (context.Items.TryGetValue("CurrentUser", out var userObject) &&
-            context.Items.TryGetValue("Permissions", out var permissionsObject) &&
-            userObject is IUser currentUser &&
-            permissionsObject is Dictionary<string, EntityPermissionSet> permissionsDict)
-        {
-            // If we already have permissions for a given path,
-            // and the current user is the same as was used to generate the permissions, return the stored permissions.
-            if (backOfficeSecurity.CurrentUser?.Id == currentUser.Id &&
-                permissionsDict.TryGetValue(path, out EntityPermissionSet? permissions))
-            {
-                return permissions.GetAllPermissions();
-            }
-        }
-
-        // TODO: This is certainly not ideal usage here - perhaps the best way to deal with this in the future is
-        // with the IUmbracoContextAccessor. In the meantime, if used outside of a web app this will throw a null
-        // reference exception :(
-
-        return _userService.GetPermissionsForPath(backOfficeSecurity.CurrentUser, path).GetAllPermissions();
     }
 
     private UrlInfo[] GetUrls(IContent source)

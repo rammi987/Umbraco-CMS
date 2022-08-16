@@ -22,7 +22,7 @@ public class ActionMediaUpdate : IAction
     public string Icon => "icon-save";
 
     /// <inheritdoc />
-    public string Alias => "updateMedia";
+    public string Alias => "update";
 
     /// <inheritdoc />
     public string Category => "media";

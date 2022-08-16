@@ -5,7 +5,7 @@ using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.Models.Membership;
 using Umbraco.Extensions;
 
-namespace Umbraco.Cms.Core.Actions.ContentActions;
+namespace Umbraco.Cms.Core.Actions;
 
 /// <summary>
 ///     The collection of actions

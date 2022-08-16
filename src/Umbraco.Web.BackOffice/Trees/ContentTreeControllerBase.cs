@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Actions;
 using Umbraco.Cms.Core.Actions.ContentActions;
+using Umbraco.Cms.Core.Actions.MediaActions;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Models;
@@ -509,7 +510,17 @@ public abstract class ContentTreeControllerBase : TreeController, ITreeNodeContr
         {
             // get the default assigned permissions for this user
             var deleteAllowed = false;
-            IAction? deleteAction = _actionCollection.FirstOrDefault(y => y.Letter == ActionDelete.ActionLetter);
+            IAction? deleteAction = null;
+
+            if (id == Constants.System.RecycleBinMediaString)
+            {
+                deleteAction = _actionCollection.FirstOrDefault(y => y.Letter == ActionMediaDelete.ActionLetter);
+            }
+            else
+            {
+                deleteAction = _actionCollection.FirstOrDefault(y => y.Letter == ActionDelete.ActionLetter);
+            } 
+
             if (deleteAction != null)
             {
                 IEnumerable<string>? perms =

@@ -2,7 +2,6 @@
 // See LICENSE for more details.
 
 using Umbraco.Cms.Core.Actions;
-using Umbraco.Cms.Core.Actions.ContentActions;
 using Umbraco.Cms.Core.Models.Trees;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Extensions;

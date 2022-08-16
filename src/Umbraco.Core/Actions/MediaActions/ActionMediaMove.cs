@@ -22,7 +22,7 @@ public class ActionMediaMove : IAction
     public string Icon => "icon-enter";
 
     /// <inheritdoc />
-    public string Alias => "moveMedia";
+    public string Alias => "move";
 
     /// <inheritdoc />
     public string? Category => "media";

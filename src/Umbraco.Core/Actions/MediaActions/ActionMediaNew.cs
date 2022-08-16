@@ -12,8 +12,10 @@ public class ActionMediaNew : IAction
     /// <inheritdoc />
     public char Letter => 'X';
 
+    public const string ActionAlias = "create";
+
     /// <inheritdoc />
-    public string Alias => "createMedia";
+    public string Alias => ActionAlias;
 
     /// <inheritdoc />
     public string Icon => "icon-add";

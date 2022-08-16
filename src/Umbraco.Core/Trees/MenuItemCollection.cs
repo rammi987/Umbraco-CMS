@@ -1,5 +1,5 @@
 using System.Runtime.Serialization;
-using Umbraco.Cms.Core.Actions.ContentActions;
+using Umbraco.Cms.Core.Actions;
 using Umbraco.Cms.Core.Models.Trees;
 
 namespace Umbraco.Cms.Core.Trees;

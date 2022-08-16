@@ -19,8 +19,7 @@ using Umbraco.Extensions;
 namespace Umbraco.Cms.Web.BackOffice.Trees;
 
 [Authorize(Policy = AuthorizationPolicies.TreeAccessMediaTypes)]
-[Tree(Constants.Applications.Settings, Constants.Trees.MediaTypes, SortOrder = 1,
-    TreeGroup = Constants.Trees.Groups.Settings)]
+[Tree(Constants.Applications.Settings, Constants.Trees.MediaTypes, SortOrder = 1, TreeGroup = Constants.Trees.Groups.Settings)]
 [PluginController(Constants.Web.Mvc.BackOfficeTreeArea)]
 [CoreTree]
 public class MediaTypeTreeController : TreeController, ISearchableTree

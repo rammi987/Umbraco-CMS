@@ -9,8 +9,9 @@ namespace Umbraco.Cms.Core.Actions.MediaActions;
 /// </summary>
 public class ActionMediaDelete : IAction
 {
+    public const char ActionLetter = 'G';
     /// <inheritdoc/>
-    public char Letter => 'G';
+    public char Letter => ActionLetter;
 
     /// <inheritdoc/>
     public bool ShowInNotifier => true;
@@ -22,7 +23,7 @@ public class ActionMediaDelete : IAction
     public string Icon => "icon-delete";
 
     /// <inheritdoc/>
-    public string Alias => "mediaDelete";
+    public string Alias => "delete";
 
     /// <inheritdoc/>
     public string Category => "media";

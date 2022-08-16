@@ -16,6 +16,9 @@ public class MediaItemDisplay : ListViewAwareContentItemDisplayBase<ContentPrope
     [DataMember(Name = "mediaLink")]
     public string? MediaLink { get; set; }
 
+    //[DataMember(Name = "allowedActions")]
+    //public IEnumerable<string>? AllowedActions { get; set; }
+
     [DataMember(Name = "apps")]
     public IEnumerable<ContentApp> ContentApps { get; set; }
 }

@@ -21,7 +21,7 @@ public class ActionMediaRights : IAction
     public string Icon => "icon-vcard";
 
     /// <inheritdoc />
-    public string Alias => "rightsMedia";
+    public string Alias => "rights";
 
     /// <inheritdoc />
     public string? Category => "media";

@@ -22,7 +22,7 @@ public class ActionMediaSort : IAction
     public string Icon => "icon-navigation-vertical";
 
     /// <inheritdoc />
-    public string Alias => "sortMedia";
+    public string Alias => "sort";
 
     /// <inheritdoc />
     public string? Category => "media";

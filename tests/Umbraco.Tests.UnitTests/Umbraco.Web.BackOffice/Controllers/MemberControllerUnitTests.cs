@@ -529,7 +529,8 @@ public class MemberControllerUnitTests
             mockUserService.Object,
             contentTypeBaseServiceProvider.Object,
             contentAppFactoryCollection,
-            textService.Object);
+            textService.Object,
+            backOfficeSecurityAccessor);
         var mockCultureDictionary = new Mock<ICultureDictionary>();
 
         var mockPasswordConfig = new Mock<IOptions<MemberPasswordConfigurationSettings>>();

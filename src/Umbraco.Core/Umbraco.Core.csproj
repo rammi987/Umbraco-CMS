@@ -62,7 +62,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Actions\MediaActions\" />
     <Folder Include="Persistence\Dtos" />
   </ItemGroup>
 </Project>
